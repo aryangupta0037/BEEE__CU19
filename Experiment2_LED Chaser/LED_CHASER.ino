@@ -1,39 +1,36 @@
-void setup() {
-  pinMode(2,OUTPUT);
-  pinMode(3,OUTPUT);
-  pinMode(4,OUTPUT);
-  pinMode(5,OUTPUT);
-  pinMode(6,OUTPUT);
-  pinMode(7,OUTPUT);
-  pinMode(8,OUTPUT);
-  pinMode(9,OUTPUT);
-  
-
+void setup()
+{
+ for (int i=9; i<=13; i++) 
+ {
+  pinMode(i, OUTPUT);
+ }
+}
+void loop()
+{
+ for (int i=9; i<=13; i++) 
+ {
+  allLEDsOff();
+  if (i!=13)
+   {
+    digitalWrite(i,HIGH);
+    digitalWrite(i+1,HIGH);
+    delay(200);
+   }
+   else
+   {
+    digitalWrite(i,HIGH);
+    digitalWrite(i-3,HIGH);
+    delay(200);
+    allLEDsOff();
+   }
+ }
 }
 
-void loop() {
-  digitalWrite(2,HIGH);
-  digitalWrite(2,LOW);
-  delay(100);
-  digitalWrite(3,HIGH);
-  digitalWrite(3,LOW);
-  delay(100);
-  digitalWrite(4,HIGH);
-  digitalWrite(4,LOW);
-  delay(100);
-  digitalWrite(5,HIGH);
-  digitalWrite(5,LOW);
-  delay(100);
-  digitalWrite(6,HIGH);
-  digitalWrite(6,LOW);
-  delay(100);
-  digitalWrite(7,HIGH);
-  digitalWrite(7,LOW);
-  delay(100);
-    digitalWrite(8,HIGH);
-  digitalWrite(8,LOW);
-  delay(100);
-    digitalWrite(9,HIGH);
-  digitalWrite(9,LOW);
-  delay(100);
+void allLEDsOff(void)
+{
+for (int i=9; i<=13; i++) 
+ {
+  digitalWrite(i, LOW);
+ }
+delay(100);
 }
